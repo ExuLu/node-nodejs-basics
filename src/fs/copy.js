@@ -1,11 +1,11 @@
 import fs from 'fs';
-import path, { dirname } from 'path';
+import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
 
 const copy = async () => {
   const __dirname = dirname(fileURLToPath(import.meta.url));
-  const originalDirPath = path.join(__dirname, 'files');
-  const copyDirPath = path.join(__dirname, 'files_copy');
+  const originalDirPath = join(__dirname, 'files');
+  const copyDirPath = join(__dirname, 'files_copy');
   fs.open(copyDirPath, (err) => {
     if (err) {
       if (err.code === 'ENOENT') {

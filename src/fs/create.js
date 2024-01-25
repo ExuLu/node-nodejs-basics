@@ -1,10 +1,10 @@
 import fs from 'fs';
-import path, { dirname } from 'path';
+import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
 
 const create = async () => {
   const __dirname = dirname(fileURLToPath(import.meta.url));
-  const newFilePath = path.join(__dirname, 'files', 'fresh.txt');
+  const newFilePath = join(__dirname, 'files', 'fresh.txt');
   fs.open(newFilePath, (err) => {
     if (err) {
       if (err.code === 'ENOENT') {
